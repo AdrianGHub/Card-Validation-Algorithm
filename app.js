@@ -5,38 +5,28 @@ import checkCardNumber from './card-checker';
 
 
 
-
 const form = document.querySelector('form');
 const cardNameInput = document.querySelector('.card-number');
 const submitBtn = document.querySelector('.submit-btn');
 const errorEl = document.querySelector('.error');
-const result = document.querySelector('.result');
 
 document.forms[0].addEventListener('submit', (e) => {
     e.preventDefault();
-    let messages = [];
+
     switch(true) {
         case cardNameInput.value.replace(/\s+/g, '').length < 13 :
             errorEl.classList.add('red')
-            messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
+            errorEl.innerText = 'Numer karty musi zawierać od 13 do 16 cyfr';
             break;
         case cardNameInput.value.replace(/\s+/g, '').length > 16 :
             errorEl.classList.add('red');
-            messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
+            errorEl.innerText = 'Numer karty musi zawierać od 13 do 16 cyfr';
             break;
+        default: 
+            errorEl.classList.remove('red');
+            errorEl.innerText = '';
     }
+    
+    checkCardNumber(cardNameInput.value);
 
-    if (messages.length > 0) {
-        e.preventDefault();
-        errorEl.innerText = messages.join(', ')
-    }
-    
-    if(checkCardNumber) {
-        result.classList.add('green');
-        result.innerText = checkCardNumber(cardNameInput.value);
-    } else {
-        result.classList.add('red');
-        result.innerText = checkCardNumber(cardNameInput.value);
-    }
-    
 })

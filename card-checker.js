@@ -1,6 +1,8 @@
 
 function checkCardNumber(cardNumber) {
 
+    const result = document.querySelector('.result');
+
    const clearCardNumber = cardNumber.replace(/\s+/g, ''); 
 
     if(typeof clearCardNumber !== 'string' || /^\d+$/.test(clearCardNumber) !== true ) {
@@ -51,12 +53,19 @@ function checkCardNumber(cardNumber) {
           default: 
               false;
       }
-      return `Twoja karta jest poprawna. Wydał ją ${validCardName}`   
+        const validValue = `Twoja karta jest poprawna. Wydana została przez ${validCardName}`;
+        result.classList.remove('red');
+        result.classList.add('green');
+        return result.innerText = validValue;
     } else {
-      return 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
+        const invalidValue = 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
+        result.classList.remove('green');
+        result.classList.add('red');
+        return result.innerText = invalidValue;
     }
   }
 }
+
 
 export default checkCardNumber;
 

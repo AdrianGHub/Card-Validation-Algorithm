@@ -134,6 +134,7 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function checkCardNumber(cardNumber) {
+  var result = document.querySelector('.result');
   var clearCardNumber = cardNumber.replace(/\s+/g, '');
 
   if (typeof clearCardNumber !== 'string' || /^\d+$/.test(clearCardNumber) !== true) {
@@ -194,9 +195,15 @@ function checkCardNumber(cardNumber) {
           false;
       }
 
-      return "Twoja karta jest poprawna. Wyda\u0142 j\u0105 ".concat(validCardName);
+      var validValue = "Twoja karta jest poprawna. Wydana zosta\u0142a przez ".concat(validCardName);
+      result.classList.remove('red');
+      result.classList.add('green');
+      return result.innerText = validValue;
     } else {
-      return 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
+      var invalidValue = 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
+      result.classList.remove('green');
+      result.classList.add('red');
+      return result.innerText = invalidValue;
     }
   }
 }
@@ -215,35 +222,26 @@ var form = document.querySelector('form');
 var cardNameInput = document.querySelector('.card-number');
 var submitBtn = document.querySelector('.submit-btn');
 var errorEl = document.querySelector('.error');
-var result = document.querySelector('.result');
 document.forms[0].addEventListener('submit', function (e) {
   e.preventDefault();
-  var messages = [];
 
   switch (true) {
     case cardNameInput.value.replace(/\s+/g, '').length < 13:
       errorEl.classList.add('red');
-      messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
+      errorEl.innerText = 'Numer karty musi zawierać od 13 do 16 cyfr';
       break;
 
     case cardNameInput.value.replace(/\s+/g, '').length > 16:
       errorEl.classList.add('red');
-      messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
+      errorEl.innerText = 'Numer karty musi zawierać od 13 do 16 cyfr';
       break;
+
+    default:
+      errorEl.classList.remove('red');
+      errorEl.innerText = '';
   }
 
-  if (messages.length > 0) {
-    e.preventDefault();
-    errorEl.innerText = messages.join(', ');
-  }
-
-  if (_cardChecker.default) {
-    result.classList.add('green');
-    result.innerText = (0, _cardChecker.default)(cardNameInput.value);
-  } else {
-    result.classList.add('red');
-    result.innerText = (0, _cardChecker.default)(cardNameInput.value);
-  }
+  (0, _cardChecker.default)(cardNameInput.value);
 });
 },{"./card-checker":"card-checker.js"}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -273,7 +271,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64999" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51065" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
