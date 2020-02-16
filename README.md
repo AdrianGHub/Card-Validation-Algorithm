@@ -6,7 +6,7 @@ How to run this project:
 
 `npm install -g parcel-bundler`
 
-2. Localize your directory with project and run command :
+2. Localize your directory with project and run following command :
 
 `npm init -y`
 
