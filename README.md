@@ -16,5 +16,5 @@ How to run this project:
 
 4. Having opened browser with mentioned file type your card number into input field and check if message says it's correct number. 
 
-Enjoy :sunglasses:
+5. Enjoy! :sunglasses:
 
