@@ -117,135 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"card-checker.js":[function(require,module,exports) {
-"use strict";
+})({"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function checkCardNumber(cardNumber) {
-  var clearCardNumber = cardNumber.replace(/\s+/g, '');
-
-  if (typeof clearCardNumber !== 'string' || /^\d+$/.test(clearCardNumber) !== true) {
-    throw new Error("Podaj numer karty w postaci liczb.");
-  } else {
-    var cardNumberArray = clearCardNumber.split('');
-
-    var poppedArray = _toConsumableArray(cardNumberArray);
-
-    var poppedItem = poppedArray.pop();
-    var multipliedNumberArray = cardNumberArray.slice(0, -1).map(function (num, index) {
-      return index % 2 === 0 ? num * 2 : parseInt(num);
-    });
-    var reducedNumbers = multipliedNumberArray.toString().replace(/,/g, '').split('').map(function (num) {
-      return parseInt(num);
-    }).reduce(function (total, num) {
-      return total += num;
-    });
-
-    if ((reducedNumbers + parseInt(poppedItem)) % 10 === 0) {
-      var cardNames = ['Mastercard', 'AmericanExpress', 'Visa'];
-      var validCardName;
-
-      switch (true) {
-        case clearCardNumber.startsWith('51') && clearCardNumber.length === 16:
-          validCardName = cardNames[0];
-          break;
-
-        case clearCardNumber.startsWith('52') && clearCardNumber.length === 16:
-          validCardName = cardNames[0];
-          break;
-
-        case clearCardNumber.startsWith('53') && clearCardNumber.length === 16:
-          validCardName = cardNames[0];
-          break;
-
-        case clearCardNumber.startsWith('54') && clearCardNumber.length === 16:
-          validCardName = cardNames[0];
-          break;
-
-        case clearCardNumber.startsWith('55') && clearCardNumber.length === 16:
-          validCardName = cardNames[0];
-          break;
-
-        case clearCardNumber.startsWith('34') && clearCardNumber.length === 15:
-          validCardName = cardNames[1];
-          break;
-
-        case clearCardNumber.startsWith('37') && clearCardNumber.length === 15:
-          validCardName = cardNames[1];
-          break;
-
-        case clearCardNumber.startsWith('4') && (clearCardNumber.length === 13 || clearCardNumber.length === 16):
-          validCardName = cardNames[2];
-          break;
-
-        default:
-          false;
-      }
-
-      return "Twoja karta jest poprawna. Wyda\u0142 j\u0105 ".concat(validCardName);
-    } else {
-      return 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
-    }
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
+
+  return bundleURL;
 }
 
-var _default = checkCardNumber;
-exports.default = _default;
-},{}],"app.js":[function(require,module,exports) {
-"use strict";
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-var _cardChecker = _interopRequireDefault(require("./card-checker"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// console.log(cardChecker('4111111111111111'));
-var form = document.querySelector('form');
-var cardNameInput = document.querySelector('.card-number');
-var submitBtn = document.querySelector('.submit-btn');
-var errorEl = document.querySelector('.error');
-var result = document.querySelector('.result');
-document.forms[0].addEventListener('submit', function (e) {
-  e.preventDefault();
-  var messages = [];
-
-  switch (true) {
-    case cardNameInput.value.replace(/\s+/g, '').length < 13:
-      errorEl.classList.add('red');
-      messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
-      break;
-
-    case cardNameInput.value.replace(/\s+/g, '').length > 16:
-      errorEl.classList.add('red');
-      messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
-      break;
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
   }
 
-  if (messages.length > 0) {
-    e.preventDefault();
-    errorEl.innerText = messages.join(', ');
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
   }
 
-  if (_cardChecker.default) {
-    result.classList.add('green');
-    result.innerText = (0, _cardChecker.default)(cardNameInput.value);
-  } else {
-    result.classList.add('red');
-    result.innerText = (0, _cardChecker.default)(cardNameInput.value);
-  }
-});
-},{"./card-checker":"card-checker.js"}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -449,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=/app.c328ef1a.js.map
+},{}]},{},["../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.e308ff8e.js.map

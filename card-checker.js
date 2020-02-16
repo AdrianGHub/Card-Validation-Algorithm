@@ -53,7 +53,7 @@ function checkCardNumber(cardNumber) {
       }
       return `Twoja karta jest poprawna. Wydał ją ${validCardName}`   
     } else {
-        throw new Error('Niepoprawny numer karty. Spróbuj jeszcze raz.')
+      return 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
     }
   }
 }

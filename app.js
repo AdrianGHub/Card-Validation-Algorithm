@@ -17,9 +17,11 @@ document.forms[0].addEventListener('submit', (e) => {
     let messages = [];
     switch(true) {
         case cardNameInput.value.replace(/\s+/g, '').length < 13 :
+            errorEl.classList.add('red')
             messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
             break;
         case cardNameInput.value.replace(/\s+/g, '').length > 16 :
+            errorEl.classList.add('red');
             messages.push('Numer karty musi zawierać od 13 do 16 cyfr');
             break;
     }
@@ -30,9 +32,11 @@ document.forms[0].addEventListener('submit', (e) => {
     }
     
     if(checkCardNumber) {
+        result.classList.add('green');
         result.innerText = checkCardNumber(cardNameInput.value);
     } else {
-        result.innerText = 'Niepoprawny numer karty';
+        result.classList.add('red');
+        result.innerText = checkCardNumber(cardNameInput.value);
     }
     
 })
