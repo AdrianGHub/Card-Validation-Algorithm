@@ -14,5 +14,7 @@ How to run this project:
 
 3. Open website on localhost with index.html file displayed.
 
-4. Having opened browser with mentioned file type your card number into input field and check if message says it's correct number. Enjoy :sunglasses:
+4. Having opened browser with mentioned file type your card number into input field and check if message says it's correct number. 
+
+Enjoy :sunglasses:
 
