@@ -35,33 +35,37 @@ function checkCardNumber(cardNumber) {
 
     
   if((reducedNumber + parseInt(poppedItem)) % 10 === 0){
-      const cardNames = ['Mastercard', 'AmericanExpress', 'Visa'];
+      
+      const cardNames = ['Mastercard', 'Visa', 'AmericanExpress'];
       
       let validCardName;
+
+      function isMastercard(clearCardNumber) {
+        const isLength = clearCardNumber.length === 16;
+        const isPrefix = ['51', '52', '53', '54', '55'].includes(clearCardNumber.substring(0,2));
+        return isLength && isPrefix; 
+      }
+
+      function isVisa(clearCardNumber) {
+        const isLength = clearCardNumber.length === 13 || clearCardNumber.length === 16;
+        const isPrefix = clearCardNumber.startsWith('4');
+        return isLength && isPrefix; 
+      }
+
+      function isAmericanExpress(clearCardNumber) {
+        const isLength = clearCardNumber.length === 15;
+        const isPrefix = clearCardNumber.startsWith('34') || clearCardNumber.startsWith('37');
+        return isLength && isPrefix; 
+      }
       
       switch(true) {
-          case (clearCardNumber.startsWith('51') && clearCardNumber.length === 16) :
+          case isMastercard(clearCardNumber):
              validCardName = cardNames[0];
               break;
-          case (clearCardNumber.startsWith('52') && clearCardNumber.length === 16) :
-              validCardName = cardNames[0];
-              break;
-          case (clearCardNumber.startsWith('53') && clearCardNumber.length === 16) :
-              validCardName = cardNames[0];
-              break;
-          case (clearCardNumber.startsWith('54') && clearCardNumber.length === 16) :
-              validCardName = cardNames[0];
-              break;
-          case (clearCardNumber.startsWith('55') && clearCardNumber.length === 16) :
-              validCardName = cardNames[0];
-              break;
-          case (clearCardNumber.startsWith('34') && clearCardNumber.length === 15) :
+          case isVisa(clearCardNumber):
               validCardName = cardNames[1];
               break;
-          case (clearCardNumber.startsWith('37') && clearCardNumber.length === 15) :
-              validCardName = cardNames[1];
-              break;
-          case (clearCardNumber.startsWith('4')  && (clearCardNumber.length === 13 || clearCardNumber.length === 16)):
+          case isAmericanExpress(clearCardNumber):
               validCardName = cardNames[2];
               break;
           default: 
