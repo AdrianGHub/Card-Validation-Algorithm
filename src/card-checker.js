@@ -18,9 +18,15 @@ function checkCardNumber(cardNumber) {
     const multipliedNumberArray = cardNumberArray.slice(0,-1).map((num, index) => index % 2 === 0 ? num * 2 : parseInt(num));
     
     const reducedNumbers = multipliedNumberArray.toString().replace(/,/g, '').split('').map(num => parseInt(num)).reduce((total, num) => total += num);
+
+    function isEven(value) {
+        if (value%2 === 0)
+            return true;
+        else
+            return false;
+    }
     
-    
-  if((reducedNumbers + parseInt(poppedItem)) % 10 === 0) {
+  if((reducedNumbers + parseInt(poppedItem)) % 10 === 0){
       const cardNames = ['Mastercard', 'AmericanExpress', 'Visa'];
       
       let validCardName;
@@ -56,12 +62,14 @@ function checkCardNumber(cardNumber) {
         const validValue = `Twoja karta jest poprawna. Wydana została przez ${validCardName}`;
         result.classList.remove('red');
         result.classList.add('green');
-        return result.innerText = validValue;
+        result.innerText = validValue;
+        setInterval(() => result.innerText = '', 5000);
     } else {
         const invalidValue = 'Niepoprawny numer karty. Spróbuj jeszcze raz.';
         result.classList.remove('green');
         result.classList.add('red');
-        return result.innerText = invalidValue;
+        result.innerText = invalidValue;
+        setInterval(() => result.innerText = '', 5000);
     }
   }
 }

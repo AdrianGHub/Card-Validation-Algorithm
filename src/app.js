@@ -6,20 +6,22 @@ import checkCardNumber from './card-checker';
 
 const cardNameInput = document.querySelector('.card-number');
 const errorEl = document.querySelector('.error');
-const regexReplace = cardNameInput.value.replace(/\s+/g, ''); 
+let regexReplace = cardNameInput.value.replace(/\s+/g, ''); 
 
 document.forms[0].addEventListener('submit', (e) => {
     e.preventDefault();
 
     switch(true) {
-        case regexReplace.length < 13 :
+        case cardNameInput.value.replace(/\s+/g, '').length < 13 :
             errorEl.classList.add('red')
-            errorEl.innerText = 'Numer karty musi zawierać od 13 do 16 cyfr';
+            errorEl.innerText = 'Numer karty nie może zawierać poniżej 13 cyfr';
+            setInterval(() => errorEl.innerText = '', 5000);
             break;
-        case regexReplace.length > 16 :
+        case cardNameInput.value.replace(/\s+/g, '').length > 16 :
             errorEl.classList.add('red');
-            errorEl.innerText = 'Numer karty musi zawierać od 13 do 16 cyfr';
-            break;
+            errorEl.innerText = 'Numer karty nie może zawierać powyżej 16 cyfr';
+            setInterval(() => errorEl.innerText = '', 5000);
+        break;
         default: 
             errorEl.classList.remove('red');
             errorEl.innerText = '';
