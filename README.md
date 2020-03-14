@@ -31,12 +31,12 @@
 
 5. Open website on localhost with index.html file displayed.
 
-6. See the example(#examples) --> Enjoy! :sunglasses:
+6. See the [Examples](#examples) --> Enjoy! :sunglasses:
 
 
 ## Examples
 
-CardVerify code by using
+Having opened browser with mentioned file type your card number into input field and check if message says it's correct number.
 
 ```
 before validation: 4874742091150666
