@@ -5,7 +5,7 @@
 ## Table of contents :notebook_with_decorative_cover:
 
 - [Technologies](#technologies)
-- [How to run](#how)
+- [How to run](#howtorunthisproject)
 - [Examples](#examples)
 - [Status](#status)
 
