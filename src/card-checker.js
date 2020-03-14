@@ -15,9 +15,17 @@ function checkCardNumber(cardNumber) {
     
     const poppedItem = poppedArray.pop();
 
-    const selectionArray = cardNumberArray.slice(0,-1)
+    const selectionArray = cardNumberArray.slice(0,-1);
+
+    console.log(selectionArray.length);
     
-    const multipliedNumberArray = selectionArray.map((num, index) => index % 2 === 0 ? num * 2 : parseInt(num));
+    const multipliedNumberArray = selectionArray.map((num, index) => {
+        if(selectionArray.length % 2 !== 0) {
+            return index % 2 === 0 ? num * 2 : parseInt(num);
+        } else {
+            return index % 2 !== 0 ? num * 2 : parseInt(num);
+        }
+    });
     
     const arrayWithReplacedCommas = multipliedNumberArray.toString().replace(/,/g, '').split('');
 
