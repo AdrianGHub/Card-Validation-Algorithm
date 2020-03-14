@@ -8,8 +8,6 @@ How to run this project:
 
 2. Localize your directory with project and run following command :
 
-`npm init -y`
-
 `parcel index.html`
 
 3. Open website on localhost with index.html file displayed.
