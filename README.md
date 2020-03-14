@@ -55,4 +55,4 @@ after validation: Numer kary nie może zawierać poniżej 13 cyfr
 
 ## Status
 
-:tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada: Project is _finished_ :tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada:
+:tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada: Project is _finished_ :tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tada:
