@@ -5,7 +5,7 @@
 ## Table of contents :notebook_with_decorative_cover:
 
 - [Technologies](#technologies)
-- [How to run](#howtorunthisproject)
+- [How to run](#setup)
 - [Examples](#examples)
 - [Status](#status)
 
@@ -15,7 +15,7 @@
 - CSS3
 - Javascript
 
-## How to run this project: :fire: :fire: :fire: 
+## Setup :fire: :fire: :fire: 
 
 1. Clone this repo `https://github.com/AdrianGHub/Card-Validation-Algorithm.git`
 
