@@ -1,9 +1,10 @@
 # Card-Validation-Algorithm :rocket:
 
-![GitHub Logo](/github/layout.png)
-Format: ![Alt Text](Project layout.)
+> I've accomplished this practical project as a part of Opanuj JavaScript course. The project was built using pure JavaScript( programming logic and functionality ) and HTML/CSS (layout, styles). It's main focus is to validate card number from the selecion of 3 financial services (Visa, Mastercard or AmericanExpress) based on Luhn Algorithm.
 
-> This is a practical project from Opanuj JavaScript course, the project is about creating validate card number.
+
+![GitHub Logo](/github/layout.png)
+
 
 ## Table of contents :notebook_with_decorative_cover:
 
