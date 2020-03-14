@@ -1,5 +1,8 @@
 # Card-Validation-Algorithm :rocket:
 
+![GitHub Logo](/github/layout.png)
+Format: ![Alt Text](Project layout.)
+
 > This is a practical project from Opanuj JavaScript course, the project is about creating validate card number.
 
 ## Table of contents :notebook_with_decorative_cover:
@@ -51,4 +54,4 @@ after validation: Numer kary nie może zawierać poniżej 13 cyfr
 
 ## Status
 
-:construction: Project is _under construction_ -> American Express card validation issue.
+:tada::tada::tada::tada::tada::tada::tada::tada: Project is _finished_ :tada::tada::tada::tada::tada::tada::tada::tada::tada::tada::tad
