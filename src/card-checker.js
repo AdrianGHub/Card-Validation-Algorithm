@@ -14,13 +14,19 @@ function checkCardNumber(cardNumber) {
     const poppedArray = [...cardNumberArray];
     
     const poppedItem = poppedArray.pop();
+
+    const selectionArray = cardNumberArray.slice(0,-1)
     
-    const multipliedNumberArray = cardNumberArray.slice(0,-1).map((num, index) => index % 2 === 0 ? num * 2 : parseInt(num));
+    const multipliedNumberArray = selectionArray.map((num, index) => index % 2 === 0 ? num * 2 : parseInt(num));
     
-    const reducedNumbers = multipliedNumberArray.toString().replace(/,/g, '').split('').map(num => parseInt(num)).reduce((total, num) => total += num);
+    const arrayWithReplacedCommas = multipliedNumberArray.toString().replace(/,/g, '').split('');
+
+    const arrayWithNumValues = arrayWithReplacedCommas.map(num => parseInt(num));
+
+    const reducedNumber = arrayWithNumValues.reduce((total, num) => total += num);
 
     
-  if((reducedNumbers + parseInt(poppedItem)) % 10 === 0){
+  if((reducedNumber + parseInt(poppedItem)) % 10 === 0){
       const cardNames = ['Mastercard', 'AmericanExpress', 'Visa'];
       
       let validCardName;
