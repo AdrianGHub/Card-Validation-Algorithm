@@ -41,13 +41,12 @@ Having opened browser with mentioned file type your card number into input field
 ```
 before validation: 4874742091150666
 
-after validation: Numer karty poprawny. Wydał ją: Visa
+after validation: Twoja karta jest poprawna. Została wydana przez Visa
 
 
+before validation:  1 8 1 2
 
-before validation:  1 a 1 a
-
-after validation: Numer karty niepoprawny. Nieprawidłowy
+after validation: Numer kary nie może zawierać poniżej 13 cyfr 
 ```
 
 ## Status
