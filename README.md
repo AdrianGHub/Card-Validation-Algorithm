@@ -2,20 +2,20 @@
 
 > This is a practical project from Opanuj JavaScript course, the project is about creating validate card number.
 
-## Table of contents
+## Table of contents :notebook_with_decorative_cover:
 
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Examples](#examples)
 - [Status](#status)
 
-## Technologies
+## Technologies 
 
 - HTML5
 - CSS3
 - Javascript
 
-## How to run this project: 
+## How to run this project: :fire: :fire: :fire: 
 
 1. Clone this repo `https://github.com/AdrianGHub/Card-Validation-Algorithm.git`
 
@@ -52,4 +52,4 @@ after validation: Numer karty niepoprawny. Nieprawidłowy
 
 ## Status
 
-Project is _under construction_ -> American Express card validation issue.
+:construction: Project is _under construction_ -> American Express card validation issue.
