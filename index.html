@@ -6,22 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .success {
-    color: green;
-}
+            .success {
+                color: rgb(66, 177, 66);
+            }
 
-        .error {
-            color: red;
-        }
+            .error {
+                color: rgb(160, 31, 31);
+            }
     </style>
 </head>
 <body>
-    <h1>Witaj w module walidacji karty razem z Opanuj JS!</h1>
-    <form action="/" method="GET">
-    <label for="cardNumber">
-        Numer karty
-        <input class="card-number"type="text" placeholder="Wpisz numer karty..." required/>
-        <input class="submit-btn"type="submit" value="Zatwierdź"/>
+    <h1>Cześć 👋 Pomogę Ci zweryfikować Twoją kartę 😉</h1>
+    <form action="/" method="GET" class="form">
+        <input name="cardNumber" class="card_input"type="text" autocomplete="off" required/>
+    <label for="cardNumber" class="card_label">
+        <span class="card_span">Numer karty</span>
     </label>
 </form>
 <br>
