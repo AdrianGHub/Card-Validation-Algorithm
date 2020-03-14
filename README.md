@@ -1,18 +1,55 @@
 # Card-Validation-Algorithm :rocket:
 
-How to run this project: 
+> This is a practical project from Opanuj JavaScript course, the project is about creating validate card number.
 
-1. Install parcel bundler :
+## Table of contents
+
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Examples](#examples)
+- [Status](#status)
+
+## Technologies
+
+- HTML5
+- CSS3
+- Javascript
+
+## How to run this project: 
+
+1. Clone this repo `https://github.com/AdrianGHub/Card-Validation-Algorithm.git`
+
+2. 3. Make sure you have Node.js with npm from [nodejs.org](https://nodejs.org/en/) or via [nvm](https://github.com/nvm-sh/nvm) | [n](https://github.com/tj/n)
+
+3. Install parcel bundler :
 
 `npm install -g parcel-bundler`
 
-2. Localize your directory with project and run following command :
+4. Localize your directory with project and run following command :
 
 `parcel index.html`
 
-3. Open website on localhost with index.html file displayed.
+5. Open website on localhost with index.html file displayed.
 
-4. Having opened browser with mentioned file type your card number into input field and check if message says it's correct number. 
+6. See the example(#examples) --> Enjoy! :sunglasses:
 
-5. Enjoy! :sunglasses:
 
+## Examples
+
+CardVerify code by using
+
+```
+before validation: 4874742091150666
+
+after validation: Numer karty poprawny. Wydał ją: Visa
+
+
+
+before validation:  1 a 1 a
+
+after validation: Numer karty niepoprawny. Nieprawidłowy
+```
+
+## Status
+
+Project is _under construction_ -> American Express card validation issue.
