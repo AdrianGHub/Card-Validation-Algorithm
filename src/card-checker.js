@@ -19,12 +19,6 @@ function checkCardNumber(cardNumber) {
     
     const reducedNumbers = multipliedNumberArray.toString().replace(/,/g, '').split('').map(num => parseInt(num)).reduce((total, num) => total += num);
 
-    function isEven(value) {
-        if (value%2 === 0)
-            return true;
-        else
-            return false;
-    }
     
   if((reducedNumbers + parseInt(poppedItem)) % 10 === 0){
       const cardNames = ['Mastercard', 'AmericanExpress', 'Visa'];
