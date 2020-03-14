@@ -19,7 +19,7 @@
 
 1. Clone this repo `https://github.com/AdrianGHub/Card-Validation-Algorithm.git`
 
-2. 3. Make sure you have Node.js with npm from [nodejs.org](https://nodejs.org/en/) or via [nvm](https://github.com/nvm-sh/nvm) | [n](https://github.com/tj/n)
+2. Make sure you have Node.js with npm from [nodejs.org](https://nodejs.org/en/) or via [nvm](https://github.com/nvm-sh/nvm) | [n](https://github.com/tj/n)
 
 3. Install parcel bundler :
 
